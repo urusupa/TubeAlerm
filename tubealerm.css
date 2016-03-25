@@ -1,0 +1,39 @@
+
+#datehere {
+	font-size:30px;
+
+}
+
+#timehere {
+	font-size:100px;
+
+}
+
+.alermon {
+	font-size:20px;
+	color:red;
+	font-weight: bold;
+}
+
+.alermoff {
+	color:blue;
+	font-weight: bold;
+}
+
+
+a.titlelink {
+	color:#000000; 
+	text-decoration:none;
+}
+
+a.InLinkYt {
+	color:#0000ff;
+}
+
+a.ExLinkYt {
+	font-size:80%;
+	color:#000000; 
+	text-decoration:none;
+}
+
+
