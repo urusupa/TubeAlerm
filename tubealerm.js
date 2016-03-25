@@ -56,6 +56,17 @@ function makeform(){
 	}
 }
 
+//selYtHistry()のもっと見るボタン用jQuery
+$(function(){
+	$('.YtHistry:not(.YtHistry:first-of-type)').css('display','none'); //一番上の要素以外を非表示
+	$('.showmore').nextAll('.showmore').css('display','none'); //ボタンを非表示
+	$('.showmore').on('click', function() {
+		$(this).css('display','none'); //押したボタンを非表示
+		$(this).next('.YtHistry').slideDown('fast');
+		$(this).nextAll('.showmore:first').css('display','block'); //次のボタンを表示
+	});
+});
+
 /*
 function enterkeysubmit(){
 //EnterキーならSubmit

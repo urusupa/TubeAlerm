@@ -36,4 +36,13 @@ a.ExLinkYt {
 	text-decoration:none;
 }
 
+ul {
+    margin-top:0px;
+}
+
+.showmore {
+	display: inline-block;
+	color:#0000ff;
+	cursor:pointer;
+}
 

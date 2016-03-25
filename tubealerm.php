@@ -26,20 +26,27 @@ function selYtHistry(){
 	global $pdo;
 	global $time;
 
-//	echo "<br><br>履歴（最新10件）";
-	echo "<br><br>履歴";
+	echo "<br><br>履歴\n";
 	ConnectMySQL();
 	echo "<ul>\n";
 	$result = $pdo->query("SELECT * FROM V_TUBEALERM WHERE 1=1 AND USE_KBN = '0' LIMIT 0,100");
+	$count = 0;
 	while($row = $result -> fetch(PDO::FETCH_ASSOC)) {
 		$video_id = $row["VIDEO_ID"];
 		$title = $row["TITLE"];
 		echo "<li>";
 		echo "<a class='InLinkYt' href='http://nyctea.me/tubealerm/?vid=" . $video_id . "&time=". $time . "'>" . $title . "</a> | <a class='ExLinkYt'  target='_blank' href='https://www.youtube.com/watch?v=" . $video_id . "'>YouTube<img src='img/external-link-symbol.png'></a>";
 		echo "</li>\n";
+		
+		$count++;
+		if($count == 10){ //「履歴もっと見る」のために10件で区切る
+			echo "<div class='showmore'><br>もっと見る</div>\n";
+			echo "<div class='YtHistry'>\n";
+		}
 	}
 	//	echo "<li><a href='#'>more</a></li>"; //そのうち実装する。「履歴もっと見る」機能
 	echo "</ul>\n";
+	echo "</div>\n";
 	CloseMySQL();
 
 }
@@ -103,6 +110,7 @@ if ( $time == "" || $time == "9999"){
 
 echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n";
 echo "<link href='tubealerm.css' rel='stylesheet'>\n";
+echo "<script type='text/javascript' src='/misc/jquery-2.2.2.min.js'></script>\n";
 echo "<script type='text/javascript' src='tubealerm.js'></script>\n";
 echo "</head>\n";
 echo "<body>\n";
