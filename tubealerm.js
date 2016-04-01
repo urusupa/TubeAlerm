@@ -39,10 +39,13 @@ function makeform(){
 		wYoutubeid = "https://www.youtube.com/watch?v=" + youtubeid
 	}
 	document.write('<form name="mainform" action="form.php" method="POST">');
-	document.write('URL or VideoID <input type="text" name="vid" size="60" value="'+wYoutubeid+'" ><br>');
-	document.write('時分 <input type="text" name="time" size="40" value="'+jihun+'" onkeydown="enterkeysubmit();"><br>');
-	document.write('<input type="submit" value="決定">　');
-	document.write('<input type="button" value="リセット" onClick="location.href = \'/tubealerm\';">');
+	document.write('<table class="mainform"> ');
+	document.write('<tr><td>URL or <br>VideoID</td><td><input type="text" name="vid" size="60" value="'+wYoutubeid+'" ><br>');
+	document.write('<input type="checkbox" name="vinc" id="vinc"><label for="vinc">volume increase</label></td></tr>');
+	document.write('<tr><td>時分</td><td><input type="text" name="time" size="40" value="'+jihun+'" onkeydown="enterkeysubmit();"></td></tr>');
+	document.write('<tr><td colspan="2"><input type="submit" value="決定">　　');
+	document.write('<input type="button" value="リセット" onClick="location.href = \'/tubealerm\';"></td></tr>');
+	document.write('</table>');
 	document.write('</form><br>');
 
 	var url = window.location.href;

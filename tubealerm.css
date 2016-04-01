@@ -46,3 +46,25 @@ ul {
 	cursor:pointer;
 }
 
+table.mainform {
+	border:1px;
+	border-collapse: collapse;
+
+}
+
+.mainform th{
+	padding: 6px;
+	text-align: left;
+	vertical-align: top;
+	color: #333;
+	background-color: #eee;
+	border: 1px solid #b9b9b9;
+}
+
+.mainform tr {
+}
+
+.mainform td {
+	padding: 4px;
+	background-color: #fff;
+	border: 1px solid #b9b9b9;

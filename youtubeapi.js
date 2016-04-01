@@ -19,8 +19,8 @@ function onYouTubeIframeAPIReady() {
 			playlist: youtubeid
 		},
 		events: {
+			'onStateChange': onPlayerStateChange
 			//'onReady': onPlayerReady,
-			//'onStateChange': onPlayerStateChange,
 			//'onError': 
 		}
 	});
@@ -30,8 +30,19 @@ function onPlayerReady(event) {
   event.target.playVideo();
 }
 
-var done = false;
 function onPlayerStateChange(event) {
+	var ytStatus = event.data;
+	var vinc = document.mainform.vinc.checked;
+
+	if (ytStatus == YT.PlayerState.ENDED && vinc) {
+		volume = player.getVolume();
+		volume = volume + 10;
+		player.setVolume(volume);
+	}
+}
+
+
+//function onPlayerStateChange(event) {
 //  var ytStatus = event.data;
 //  // çƒê∂èIóπÇµÇΩÇ∆Ç´
 //  if (ytStatus == YT.PlayerState.ENDED) {
@@ -43,7 +54,7 @@ function onPlayerStateChange(event) {
 //    setTimeout(stopVideo, 6000);
 //    done = true;
 //  }
-}
+//}
 
 function stopVideo() {
   player.stopVideo();
