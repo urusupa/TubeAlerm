@@ -29,7 +29,7 @@ function selYtHistry(){
 	echo "<br><br>履歴\n";
 	ConnectMySQL();
 	echo "<ul>\n";
-	$result = $pdo->query("SELECT * FROM V_TUBEALERM WHERE 1=1 AND USE_KBN = '0' LIMIT 0,100");
+	$result = $pdo->query("SELECT * FROM V_TUBEALERM WHERE 1=1 AND USE_KBN = '0' ORDER BY `RCD_KSN_TIME` DESC LIMIT 0,100");
 	$count = 0;
 	while($row = $result -> fetch(PDO::FETCH_ASSOC)) {
 		$video_id = $row["VIDEO_ID"];
@@ -44,7 +44,6 @@ function selYtHistry(){
 			echo "<div class='YtHistry'>\n";
 		}
 	}
-	//	echo "<li><a href='#'>more</a></li>"; //そのうち実装する。「履歴もっと見る」機能
 	echo "</ul>\n";
 	echo "</div>\n";
 	CloseMySQL();
@@ -110,8 +109,10 @@ if ( $time == "" || $time == "9999"){
 
 echo "<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n";
 echo "<link href='tubealerm.css' rel='stylesheet'>\n";
+echo "<link rel='shortcut icon' type='image/x-icon' href='favicon.ico'>\n";
 echo "<script type='text/javascript' src='/misc/jquery-2.2.2.min.js'></script>\n";
 echo "<script type='text/javascript' src='tubealerm.js'></script>\n";
+echo "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-76837303-1', 'auto');ga('send', 'pageview');</script>\n";
 echo "</head>\n";
 echo "<body>\n";
 echo "\n";
